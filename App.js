@@ -23,6 +23,7 @@ const Header = () => {
   );
 };
 const RestaurantItem = ({ resData }) => {
+  const { name, cuisines, avgRating, sla } = resData;
   return (
     <div className="res-item">
       <img
@@ -34,10 +35,10 @@ const RestaurantItem = ({ resData }) => {
         }
       />
       <div className="res-item-info">
-        <h3 className="res-name">{resData.name}</h3>
-        <h4>{resData.cuisines.join(", ")}</h4>
-        <h4>{resData.avgRating} stars</h4>
-        <h4>{resData.sla.deliveryTime} min</h4>
+        <h3 className="res-name">{name}</h3>
+        <h4>{cuisines.join(", ")}</h4>
+        <h4>{avgRating} stars</h4>
+        <h4>{sla?.deliveryTime} min</h4>
       </div>
     </div>
   );
@@ -48,7 +49,9 @@ const Body = () => {
     <div className="body">
       <div className="search-bar">Search</div>
       <div className="res-container">
-        <RestaurantItem resData={resData[0]?.info} />
+        {resData.map((res) => (
+          <RestaurantItem resData={res?.info} key={res?.info?.id} />
+        ))}
       </div>
     </div>
   );
