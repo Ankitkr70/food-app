@@ -1,13 +1,16 @@
+body {
+  background-color: #ead7bb;
+}
 * {
   margin: 0;
   border: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 .app {
   padding: 0 10px;
-  background-color: #ead7bb;
 }
 .logo {
   mix-blend-mode: multiply;
@@ -15,6 +18,15 @@
   height: 100px;
 }
 
+h4 {
+  margin-top: 5px;
+}
+
+.res-name + h4 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .header {
   display: flex;
   align-content: center;
@@ -63,4 +75,6 @@
 }
 .res-img {
   width: 100%;
+  object-fit: cover;
+  height: 150px;
 }

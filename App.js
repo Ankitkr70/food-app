@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import { resData } from "./data";
 const Header = () => {
   return (
     <div className="header">
@@ -22,19 +22,22 @@ const Header = () => {
     </div>
   );
 };
-const RestaurantItem = () => {
+const RestaurantItem = ({ resData }) => {
   return (
     <div className="res-item">
       <img
         className="res-img"
-        src="https://imageio.forbes.com/specials-images/dam/imageserve/1058912512/960x0.jpg?height=474&width=711&fit=bounds"
         alt="res-logo"
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          resData.cloudinaryImageId
+        }
       />
-      <div className="res-name">Burger King</div>
       <div className="res-item-info">
-        <h4>Burgers, Fries, Wraps</h4>
-        <h3>5 stars</h3>
-        <h3>30 min</h3>
+        <h3 className="res-name">{resData.name}</h3>
+        <h4>{resData.cuisines.join(", ")}</h4>
+        <h4>{resData.avgRating} stars</h4>
+        <h4>{resData.sla.deliveryTime} min</h4>
       </div>
     </div>
   );
@@ -45,14 +48,7 @@ const Body = () => {
     <div className="body">
       <div className="search-bar">Search</div>
       <div className="res-container">
-        <RestaurantItem />
-        <RestaurantItem />
-        <RestaurantItem />
-        <RestaurantItem />
-        <RestaurantItem />
-        <RestaurantItem />
-        <RestaurantItem />
-        <RestaurantItem />
+        <RestaurantItem resData={resData[0]?.info} />
       </div>
     </div>
   );
