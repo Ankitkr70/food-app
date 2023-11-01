@@ -1,5 +1,5 @@
 import RestaurantItem from "./RestaurantItem";
-import { resData } from "../data";
+import { resData } from "../utils/data";
 const Body = () => {
   return (
     <div className="body">
