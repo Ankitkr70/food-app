@@ -23,7 +23,7 @@ h4 {
 }
 
 .res-name + h4 {
-  white-space: nowrap;
+  text-wrap: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -34,7 +34,7 @@ h4 {
 }
 
 .body {
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
 .res-container {
@@ -87,4 +87,20 @@ h4 {
   border-radius: 5px;
   background-color: salmon;
   color: white;
+}
+
+.shimmer-container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 300px;
+  padding: 10px;
+  background-color: #fff2d8;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }

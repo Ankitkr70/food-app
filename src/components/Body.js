@@ -1,16 +1,34 @@
 import RestaurantItem from "./RestaurantItem";
-import { resData } from "../utils/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { API_URL } from "../utils/constants";
+import Shimmer from "./Shimmer";
+
 const Body = () => {
-  const [resList, setResList] = useState(resData);
+  const [resList, setResList] = useState([]);
   const filterRestaurant = () => {
     const filteredRes = resList.filter((res) => res.info.avgRating > 4);
     setResList(filteredRes);
   };
 
   const clearFilterRestauant = () => {
-    setResList(resData);
+    fetchRes();
   };
+
+  useEffect(() => {
+    fetchRes();
+  }, []);
+
+  const fetchRes = async () => {
+    const response = await fetch(API_URL);
+    const json = await response.json();
+    const { restaurants } =
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle;
+    setResList(restaurants);
+  };
+
+  if (resList.length === 0) {
+    return <Shimmer />;
+  }
   return (
     <div className="body">
       <div className="filter">
