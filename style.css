@@ -58,7 +58,22 @@ h4 {
 }
 
 .nav-items > ul > li {
-  font-size: 18px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+li::after {
+  height: 3px;
+  content: "";
+  display: block;
+  background-color: black;
+  transform: scaleX(0);
+  transition: transform 150ms ease;
+}
+
+li:hover::after {
+  transform: scaleX(1);
 }
 
 .res-item {
