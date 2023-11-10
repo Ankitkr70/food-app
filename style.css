@@ -87,6 +87,7 @@ h4 {
   border-radius: 5px;
   background-color: salmon;
   color: white;
+  transition: background-color 200ms;
 }
 
 .shimmer-container {
@@ -103,4 +104,21 @@ h4 {
   background-color: #fff2d8;
   border-radius: 5px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-input {
+  padding: 5px;
+  width: 400px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: #f04531;
 }
