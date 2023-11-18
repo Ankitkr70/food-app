@@ -21,8 +21,9 @@ const Body = () => {
     const filteredRestaurants = allRestaurants.filter((res) =>
       res?.info?.name.toLowerCase().includes(searchText)
     );
-
-    setResList(filteredRestaurants);
+    if (filteredRestaurants && filteredRestaurants.length > 0) {
+      setResList(filteredRestaurants);
+    }
   };
 
   useEffect(() => {
