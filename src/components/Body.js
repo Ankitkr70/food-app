@@ -1,7 +1,8 @@
 import RestaurantItem from "./RestaurantItem";
 import { useEffect, useState } from "react";
-import { API_URL } from "../utils/constants";
+import { RESTAUTANTS_API } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -35,7 +36,7 @@ const Body = () => {
   }, [searchText]);
 
   const fetchRes = async () => {
-    const response = await fetch(API_URL);
+    const response = await fetch(RESTAUTANTS_API);
     const json = await response.json();
     const { restaurants } =
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle;
@@ -70,7 +71,9 @@ const Body = () => {
       </div>
       <div className="res-container">
         {resList.map((res) => (
-          <RestaurantItem resData={res?.info} key={res?.info?.id} />
+          <Link key={res?.info?.id} to={"/restaurants/" + res?.info?.id}>
+            <RestaurantItem resData={res?.info} />
+          </Link>
         ))}
       </div>
     </div>

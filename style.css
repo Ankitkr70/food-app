@@ -67,7 +67,7 @@ a {
   color: black;
 }
 
-li::after {
+.nav-items li::after {
   height: 3px;
   content: "";
   display: block;
@@ -76,7 +76,7 @@ li::after {
   transition: transform 150ms ease;
 }
 
-li:hover::after {
+.nav-items li:hover::after {
   transform: scaleX(1);
 }
 
