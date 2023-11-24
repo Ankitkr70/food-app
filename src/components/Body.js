@@ -1,13 +1,24 @@
 import RestaurantItem from "./RestaurantItem";
 import { useEffect, useState } from "react";
-import { RESTAUTANTS_API } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../hooks/useOnlineStatus";
+import useGetRestaurants from "../hooks/useGetRestaurants";
+import InternetOffline from "./InternetOffline";
 
 const Body = () => {
-  const [resList, setResList] = useState([]);
-  const [allRestaurants, setAllRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [resList, setResList] = useState([]);
+  const onlineStatus = useOnlineStatus();
+  const allRestaurants = useGetRestaurants();
+
+  useEffect(() => {
+    setResList(allRestaurants);
+  }, [allRestaurants]);
+
+  useEffect(() => {
+    !searchText && setResList(allRestaurants);
+  }, [searchText]);
 
   const topRatedRestaurant = () => {
     const filteredRes = allRestaurants.filter((res) => res.info.avgRating > 4);
@@ -27,22 +38,7 @@ const Body = () => {
     }
   };
 
-  useEffect(() => {
-    fetchRes();
-  }, []);
-
-  useEffect(() => {
-    !searchText && setResList(allRestaurants);
-  }, [searchText]);
-
-  const fetchRes = async () => {
-    const response = await fetch(RESTAUTANTS_API);
-    const json = await response.json();
-    const { restaurants } =
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle;
-    setAllRestaurants(restaurants);
-    setResList(restaurants);
-  };
+  if (!onlineStatus) return <InternetOffline />;
 
   return resList?.length !== 0 ? (
     <div className="body">

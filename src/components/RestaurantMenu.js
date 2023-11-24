@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { MENU_API } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { useParams, useRouteError } from "react-router-dom";
 import useGetRestaurantMenuById from "../hooks/useGetRestaurantMenuById";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-
   const resData = useGetRestaurantMenuById(resId);
+  useEffect(() => {}, []);
 
   if (resData === null) return <Shimmer />;
 

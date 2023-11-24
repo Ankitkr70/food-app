@@ -57,6 +57,9 @@ h4 {
   padding: 10px;
 }
 
+ul:first-child(li) {
+  margin-bottom: 10px;
+}
 .nav-items > ul > li {
   font-size: 16px;
   cursor: pointer;
