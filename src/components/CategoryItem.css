@@ -1,0 +1,27 @@
+.category {
+  padding: 20px 10px;
+  margin: 10px 0;
+}
+
+.category:not(:last-child) {
+  border-bottom: 2px solid var(--border-gray);
+}
+.category-name {
+  font-weight: bold;
+}
+
+.category-item-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+}
+
+/* .category-item-list {
+  opacity: 0;
+  height: 0;
+  transition: all 0.2s ease-in-out;
+}
+.collapse {
+  transition: all 0.2s ease-in-out;
+} */
