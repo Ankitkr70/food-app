@@ -144,3 +144,17 @@ a {
 .btn:hover {
   background-color: #f04531;
 }
+
+.best-seller-item-container {
+  position: relative;
+}
+.best-seller {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: white;
+}

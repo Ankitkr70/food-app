@@ -19,4 +19,15 @@ const RestaurantItem = ({ resData }) => {
   );
 };
 
+export const withRestaurantItemBestSeller = (RestaurantItem) => {
+  return (props) => {
+    return (
+      <div className="best-seller-item-container">
+        <label className="best-seller">Best Seller</label>
+        <RestaurantItem {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantItem;

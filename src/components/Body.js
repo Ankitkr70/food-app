@@ -1,4 +1,4 @@
-import RestaurantItem from "./RestaurantItem";
+import RestaurantItem, { withRestaurantItemBestSeller } from "./RestaurantItem";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -11,6 +11,7 @@ const Body = () => {
   const [resList, setResList] = useState([]);
   const onlineStatus = useOnlineStatus();
   const allRestaurants = useGetRestaurants();
+  const RestaurantItemBestSeller = withRestaurantItemBestSeller(RestaurantItem);
 
   useEffect(() => {
     setResList(allRestaurants);
@@ -38,6 +39,7 @@ const Body = () => {
     }
   };
 
+  console.log(allRestaurants);
   if (!onlineStatus) return <InternetOffline />;
 
   return resList?.length !== 0 ? (
@@ -68,7 +70,11 @@ const Body = () => {
       <div className="res-container">
         {resList.map((res) => (
           <Link key={res?.info?.id} to={"/restaurants/" + res?.info?.id}>
-            <RestaurantItem resData={res?.info} />
+            {res.info.avgRating >= 4.2 ? (
+              <RestaurantItemBestSeller resData={res?.info} />
+            ) : (
+              <RestaurantItem resData={res?.info} />
+            )}
           </Link>
         ))}
       </div>
