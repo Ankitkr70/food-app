@@ -1,23 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CategoryItem.css";
 import MenuItem from "./MenuItem";
-const CategoryItem = ({ category }) => {
-  const [showMenu, setShowMenu] = useState(false);
+const CategoryItem = ({ category, onClick, showItem }) => {
   return (
     <div className="category">
-      <div
-        className="category-item-header"
-        onClick={() => setShowMenu(!showMenu)}
-      >
+      <div className="category-item-header" onClick={onClick}>
         <div className="category-name">
           {category.card.card.title.toUpperCase()} (
           {category.card.card.itemCards.length})
         </div>
         <div className="category-icon">
-          <span>{showMenu ? "⬆️" : "⬇️"}</span>
+          <span>{showItem ? "⬆️" : "⬇️"}</span>
         </div>
       </div>
-      {showMenu && (
+      {showItem && (
         <div className={"category-item-list"}>
           {category?.card?.card?.itemCards.map((item) => (
             <MenuItem key={item.card.info.id} menuItem={item.card.info} />

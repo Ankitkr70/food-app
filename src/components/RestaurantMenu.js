@@ -9,6 +9,10 @@ const RestaurantMenu = () => {
   const resData = useGetRestaurantMenuById(resId);
   useEffect(() => {}, []);
 
+  const [showItemIndex, setShowItemIndex] = useState(null);
+  const showItemHadler = (index) => {
+    showItemIndex === index ? setShowItemIndex(null) : setShowItemIndex(index);
+  };
   if (resData === null) return <Shimmer />;
   const {
     name,
@@ -42,8 +46,14 @@ const RestaurantMenu = () => {
       </div>
 
       <div className="menu-category-container">
-        {categories.map((category) => (
-          <CategoryItem key={category.card.card.title} category={category} />
+        {categories.map((category, index) => (
+          <CategoryItem
+            key={category.card.card.title}
+            category={category}
+            onClick={() => showItemHadler(index)}
+            index={index}
+            showItem={index === showItemIndex}
+          />
         ))}
       </div>
       {/* <ul className="menu-items">
