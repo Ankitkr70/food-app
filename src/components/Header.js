@@ -2,9 +2,13 @@ import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
+import { useSelector } from "react-redux";
 const Header = () => {
   const [btnText, setBtnText] = useState("Login");
   const onlineStatus = useOnlineStatus();
+  const cartItems = useSelector((store) => store.cart.cartItems);
+  console.log(cartItems);
+
   return (
     <div className="header">
       <div className="logo-container">
@@ -22,7 +26,7 @@ const Header = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          <li>Cart</li>
+          <li>Cart - {cartItems.length}</li>
         </ul>
         <button
           className="btn"

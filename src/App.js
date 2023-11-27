@@ -7,14 +7,18 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Loading from "./components/Loading";
+import { Provider } from "react-redux";
+import appStore from "./redux/appStore";
 
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 const App = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 
