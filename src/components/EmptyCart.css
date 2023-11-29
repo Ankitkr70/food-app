@@ -1,0 +1,26 @@
+.empty-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+}
+
+.empty-img img {
+  width: 400px;
+}
+
+.cart-empty-text div:first-child {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.cart-empty-text div:last-child {
+  color: var(--secondary-text);
+}
+
+.btn-empty-cart {
+  padding: 10px 30px;
+}

@@ -11,8 +11,9 @@ const useGetRestaurants = () => {
   const fetchData = async () => {
     const response = await fetch(RESTAUTANTS_API);
     const json = await response.json();
-    const { restaurants } =
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle;
+    const restaurants =
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
     setAllRestaurants(restaurants);
   };
   return allRestaurants;

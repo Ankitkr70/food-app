@@ -7,7 +7,6 @@ const Header = () => {
   const [btnText, setBtnText] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const cartItems = useSelector((store) => store.cart.cartItems);
-  console.log(cartItems);
 
   return (
     <div className="header">
@@ -26,7 +25,9 @@ const Header = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          <li>Cart - {cartItems.length}</li>
+          <li>
+            <Link to="/cart">Cart - {cartItems.length} </Link>
+          </li>
         </ul>
         <button
           className="btn"

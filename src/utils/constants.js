@@ -8,3 +8,8 @@ export const RESTAUTANTS_API =
 
 export const MENU_API =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.4594965&lng=77.0266383&restaurantId=";
+
+export const NON_VEG =
+  "https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/non-veg-icon.png";
+export const VEG =
+  "https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/veg-icon.png";
