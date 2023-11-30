@@ -43,9 +43,7 @@
   border-radius: 5px;
   border: 2px solid salmon;
 }
-.btn {
-  margin: 0;
-}
+
 .btn-add {
   position: absolute;
   left: 35%;

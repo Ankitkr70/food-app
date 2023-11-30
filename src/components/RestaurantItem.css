@@ -1,0 +1,32 @@
+.res-item {
+  padding: 10px;
+  border-radius: 5px;
+  transition: box-shadow 300ms;
+  width: 300px;
+}
+.res-item:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.res-img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.res-name + h4 {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.res-item-info {
+  padding: 10px;
+}
+
+.res-item-info h4 {
+  font-size: 14px;
+  font-weight: lighter;
+}
