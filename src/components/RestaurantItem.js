@@ -3,7 +3,7 @@ import "./RestaurantItem.css";
 const RestaurantItem = ({ resData }) => {
   const { name, cuisines, avgRating, sla } = resData;
   return (
-    <div className="res-item">
+    <div className="res-item" data-testid="res-item">
       <img
         className="res-img"
         alt="res-logo"

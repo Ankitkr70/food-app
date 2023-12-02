@@ -4,7 +4,8 @@
   "description": "Food ordering app",
   "scripts": {
     "start": "parcel index.html --port 3000",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "author": "Ankit Kumar",
   "license": "ISC",

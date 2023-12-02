@@ -5,62 +5,64 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import appStore from "../redux/appStore";
 
-test("Should it render header component with login button", () => {
-  render(
-    <BrowserRouter>
-      <Provider store={appStore}>
-        <Header />
-      </Provider>
-    </BrowserRouter>
-  );
+describe("Unit test cases for Header components ", () => {
+  test("Should it render header component with login button", () => {
+    render(
+      <BrowserRouter>
+        <Provider store={appStore}>
+          <Header />
+        </Provider>
+      </BrowserRouter>
+    );
 
-  const loginBtn = screen.getByRole("button", { name: "Login" });
+    const loginBtn = screen.getByRole("button", { name: "Login" });
 
-  expect(loginBtn).toBeInTheDocument();
-});
+    expect(loginBtn).toBeInTheDocument();
+  });
 
-test("Should it render header component with cart button", () => {
-  render(
-    <BrowserRouter>
-      <Provider store={appStore}>
-        <Header />
-      </Provider>
-    </BrowserRouter>
-  );
+  test("Should it render header component with cart button", () => {
+    render(
+      <BrowserRouter>
+        <Provider store={appStore}>
+          <Header />
+        </Provider>
+      </BrowserRouter>
+    );
 
-  const cartBtn = screen.getByText(/Cart/i);
+    const cartBtn = screen.getByText(/Cart/i);
 
-  expect(cartBtn).toBeInTheDocument();
-});
+    expect(cartBtn).toBeInTheDocument();
+  });
 
-test("Should it render header component with 0 cart items", () => {
-  render(
-    <BrowserRouter>
-      <Provider store={appStore}>
-        <Header />
-      </Provider>
-    </BrowserRouter>
-  );
+  test("Should it render header component with 0 cart items", () => {
+    render(
+      <BrowserRouter>
+        <Provider store={appStore}>
+          <Header />
+        </Provider>
+      </BrowserRouter>
+    );
 
-  const cartBtn = screen.getByText(/0/);
+    const cartBtn = screen.getByText(/0/);
 
-  expect(cartBtn).toBeInTheDocument();
-});
+    expect(cartBtn).toBeInTheDocument();
+  });
 
-test("Should it render header component where login button changes to Logout on click", () => {
-  render(
-    <BrowserRouter>
-      <Provider store={appStore}>
-        <Header />
-      </Provider>
-    </BrowserRouter>
-  );
+  test("Should it render header component where login button changes to Logout on click", () => {
+    render(
+      <BrowserRouter>
+        <Provider store={appStore}>
+          <Header />
+        </Provider>
+      </BrowserRouter>
+    );
 
-  const loginBtn = screen.getByRole("button", { name: "Login" });
+    const loginBtn = screen.getByRole("button", { name: "Login" });
 
-  fireEvent.click(loginBtn);
+    fireEvent.click(loginBtn);
 
-  const logoutBtn = screen.getByRole("button", { name: "Logout" });
+    const logoutBtn = screen.getByRole("button", { name: "Logout" });
 
-  expect(logoutBtn).toBeInTheDocument();
+    expect(logoutBtn).toBeInTheDocument();
+  });
 });

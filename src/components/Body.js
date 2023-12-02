@@ -39,7 +39,6 @@ const Body = () => {
     }
   };
 
-  console.log(allRestaurants);
   if (!onlineStatus) return <InternetOffline />;
 
   return resList?.length !== 0 ? (
@@ -47,6 +46,7 @@ const Body = () => {
       <div className="filter">
         <div className="search">
           <input
+            data-testid="search-input"
             type="text"
             placeholder="Search a restaurant..."
             className="search-input"
@@ -62,7 +62,11 @@ const Body = () => {
           <button className="top-rated-btn btn" onClick={topRatedRestaurant}>
             Top Rated Restaurants
           </button>
-          <button className="all-res-btn btn" onClick={clearFilterRestauant}>
+          <button
+            data-testid="searh-input"
+            className="all-res-btn btn"
+            onClick={clearFilterRestauant}
+          >
             All Restaurants
           </button>
         </div>

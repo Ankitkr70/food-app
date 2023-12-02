@@ -5,6 +5,11 @@
 
 /** @type {import('jest').Config} */
 const config = {
+  moduleNameMapper: {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+      "<rootDir>/__mocks__/assetMock.js",
+    "\\.(css|less)$": "<rootDir>/src/__mocks__/stylesMock.js",
+  },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
