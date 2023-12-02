@@ -11,7 +11,6 @@ const MenuItem = ({ menuItem }) => {
     dispatch(addToCart(menuItem));
   };
   const cartItems = useSelector((store) => store.cart.cartItems);
-  console.log(cartItems);
   const quantity = cartItems.find((item) => item.id === menuItem.id)?.quantity;
   const removeFromCartHandler = () => {
     dispatch(removeFromCart(menuItem));
